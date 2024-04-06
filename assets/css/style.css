@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.canvas {
+    border: 1px black solid;
+    position: absolute;
+    top: 66px;
+    left: 42px;
+}
+
+.topArea{
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 100%;
+    flex-wrap: nowrap;
+    background-color: #535353;
+}
+
+.topAreaText{
+    color: white;
+    margin-top: 15px;
+    margin-left: 2px;
+}
+
+.upperArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    background-color: #535353;
+    align-items: center;
+    height: 20px;
+}
+
+.lowerArea{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    border: 2px solid #424242;
+    background-color: #535353;
+    margin-top: 2px;
+    align-items: center;
+}
+
+.icon{
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+    margin-top: 10px;
+}
+
+.icon.undo{
+    margin-top: 11.5px;
+    margin-left: 10px;
+    width: 16px;
+    height: 16px;
+}
+
+.top-btn{
+    background-color: #535353;
+    border: 0.5px solid #535353;
+    width: 40px;
+    height: 40px;
+}
+
+.top-btn:hover{
+    border: 0.5px solid #666666;
+    background-color: #454545;
+
+}
+
+.leftArea{
+    border: 2px solid #424242;
+    border-style: solid solid solid none;
+    float: left;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    height: 932px;
+    width:  2dvh;
+    position: absolute;
+    top: 65px;
+    background-color: #535353;
+}
+
+.leftContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.icon2{
+    margin: 5px;
+    width: 20px;
+    height: 20px;
+}
+
+.strategies{
+    background-color: #535353;
+    border: 0.5px solid #535353;
+}
+
+.strategies:hover{
+    border: 0.5px solid #666666;
+    background-color: #454545;
+}
+
+.strategies.color{
+    width: 30px;
+    height: 30px;
+}
+
+.colorPicker{
+    width: 30px;
+    height: 30px;
+}
+
+
+
