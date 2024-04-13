@@ -4,9 +4,14 @@ let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
 let currentFunction;
 let dragging = false;
-let colorStroke = "#42445A";
-let colorFill = "#42445A";
-let width = 3; //size of pen [stroke width]
+let colorStroke = "black";
+let colorFill = "white";
+let lineCap = "round";
+let lineJoin = "round";
+$('#slider_value').html("10");
+let strokeSize = 10; //size of pen [stroke width]
+const originalArr = []; //original stuff
+const undoArr = []; //undo
 
 var window_height = window.innerHeight;
 var window_width = window.innerWidth;
@@ -24,42 +29,55 @@ $('#canvas-draft').mousedown(function (e) {
 });
   
 $("#canvas-draft").mousemove(function (e) {
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    if (dragging) {
-      currentFunction.onDragging([mouseX, mouseY], e);
-    }
-    currentFunction.onMouseMove([mouseX, mouseY], e);
-  });
-  
-  $("#canvas-draft").mouseup(function (e) {
-    dragging = false;
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseUp([mouseX, mouseY], e);
-  });
-  
-  $("#canvas-draft").mouseleave(function (e) {
-    dragging = false;
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseLeave([mouseX, mouseY], e);
-  });
-  
-  $("#canvas-draft").mouseenter(function (e) {
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseEnter([mouseX, mouseY], e);
-  });
-  
-  class PaintFunction {
-    constructor() {}
-    onMouseDown() {}
-    onDragging() {}
-    onMouseMove() {}
-    onMouseUp() {}
-    onMouseLeave() {}
-    onMouseEnter() {}
-  };
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  if (dragging) {
+    currentFunction.onDragging([mouseX, mouseY], e);
+  }
+  currentFunction.onMouseMove([mouseX, mouseY], e);
+});
 
-console.log("working1");
+$("#canvas-draft").mouseup(function (e) {
+  dragging = false;
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseUp([mouseX, mouseY], e);
+});
+
+$("#canvas-draft").mouseleave(function (e) {
+  dragging = false;
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseLeave([mouseX, mouseY], e);
+});
+
+$("#canvas-draft").mouseenter(function (e) {
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseEnter([mouseX, mouseY], e);
+});
+
+class PaintFunction {
+  constructor() {}
+  onMouseDown() {}
+  onDragging() {}
+  onMouseMove() {}
+  onMouseUp() {}
+  onMouseLeave() {}
+  onMouseEnter() {}
+};
+
+$("#colorPickerFill").on("input", function(e){
+  colorFill = e.target.value;
+});
+
+$("#colorPickerStroke").on("input", function(e){
+  colorStroke = e.target.value;
+});
+
+$(document).on('input', '#slider',function(e){
+  strokeSize = e.target.value;
+  $('#slider_value').html(e.target.value);
+});
+
+

@@ -59,6 +59,57 @@
     height: 16px;
 }
 
+.stroke{
+    width: 20px;
+    height: 20px;
+}
+
+.dropdown-menu{
+    background-color: #535353 !important;
+    color: white !important;
+}
+
+.dropdownContainer{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px 0;
+}
+
+#strokeCircle{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border: 2px dotted white;
+    border-radius: 50%;
+}
+
+#strokeSquare{
+    width: 35px;
+    height: 35px;
+    border: 2px dotted white;
+    border-radius: 50%;
+}
+
+#strokeCircle:hover{
+    border: 2px solid red;
+}
+
+#strokeSquare:hover{
+    border: 2px solid red;
+}
+
+#strokeCircle img{
+    height: 100%;
+    width: 100%;
+}
+
+#strokeSquare img{
+    height: 100%;
+    width: 100%;
+}
+
+
+
 .top-btn{
     background-color: #535353;
     border: 0.5px solid #535353;
@@ -98,6 +149,12 @@
     height: 20px;
 }
 
+.icon2.arc{
+    margin-left: 2px;
+    width: 25px;
+    height: 25px;
+}
+
 .strategies{
     background-color: #535353;
     border: 0.5px solid #535353;
@@ -109,11 +166,12 @@
 }
 
 .strategies.color{
+    margin-top: 3px;
     width: 30px;
     height: 30px;
 }
 
-.colorPicker{
+#colorPickerFill, #colorPickerStroke{
     width: 30px;
     height: 30px;
 }
