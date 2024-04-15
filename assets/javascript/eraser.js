@@ -14,8 +14,10 @@ class Eraser extends PaintFunction {
         this.contextReal.clearRect(xCord, yCord, this.contextReal.lineWidth, this.contextReal.lineWidth);
     }
 
-    onMouseMove() {}
-    onMouseUp() {}
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseMove([xCord, yCord], event) {}
+    onMouseUp([xCord, yCord], event) {
+        saveData();
+    }
+    onMouseLeave([xCord, yCord], event) {}
+    onMouseEnter([xCord, yCord], event) {}
 }

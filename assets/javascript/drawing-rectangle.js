@@ -32,7 +32,7 @@ class DrawingRectangle extends PaintFunction {
     this.contextDraft.stroke();
     }
 
-    onMouseMove() {}
+    onMouseMove([xCord, yCord], event) {}
 
     onMouseUp([xCord, yCord], event) {
     let a = this.startingX - xCord;
@@ -43,8 +43,9 @@ class DrawingRectangle extends PaintFunction {
     this.contextReal.rect(this.startingX, this.startingY, -a, -b);
     this.contextReal.fill();
     this.contextReal.stroke();
+    saveData();
     }
 
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseLeave([xCord, yCord], event) {}
+    onMouseEnter([xCord, yCord], event) {}
 }

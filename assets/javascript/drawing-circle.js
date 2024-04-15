@@ -32,7 +32,7 @@ class DrawingCircle extends PaintFunction {
         this.contextDraft.stroke();
     }
 
-    onMouseMove() {}
+    onMouseMove([xCord, yCord], event) {}
 
     onMouseUp([xCord, yCord], event) {
         let distanceX = this.startingX-xCord;
@@ -43,8 +43,9 @@ class DrawingCircle extends PaintFunction {
         this.contextReal.arc(this.startingX, this.startingY, radius, 0, 2 * Math.PI);
         this.contextReal.fill();
         this.contextReal.stroke();
+        saveData();
     }
 
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseLeave([xCord, yCord], event) {}
+    onMouseEnter([xCord, yCord], event) {}
 }

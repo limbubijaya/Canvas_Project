@@ -52,11 +52,12 @@ class DrawingArc extends PaintFunction{
             this.contextReal.moveTo(this.startingX, this.startingY);
             this.contextReal.quadraticCurveTo(xCord, yCord, this.endPointX, this.endPointY);
             this.contextReal.stroke();
+            saveData();
             this.click = 0;
         } else {
             this.click++;
         }
     }
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseLeave([xCord, yCord], event) {}
+    onMouseEnter([xCord, yCord], event) {}
 }

@@ -23,15 +23,16 @@ class DrawingLine extends PaintFunction {
     this.contextDraft.lineTo(xCord, yCord);
     this.contextDraft.stroke();
   }
-  onMouseMove() {}
+  onMouseMove([xCord, yCord], event) {}
   onMouseUp([xCord, yCord], event) {
     this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
     this.contextReal.beginPath();
     this.contextReal.moveTo(this.startingX, this.startingY);
     this.contextReal.lineTo(xCord, yCord);
     this.contextReal.stroke();
+    saveData();
     
   }
-  onMouseLeave() {}
-  onMouseEnter() {}
+  onMouseLeave([xCord, yCord], event) {}
+  onMouseEnter([xCord, yCord], event) {}
 }

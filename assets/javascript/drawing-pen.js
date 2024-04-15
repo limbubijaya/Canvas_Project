@@ -19,11 +19,11 @@ class DrawingPen extends PaintFunction {
         this.contextReal.stroke();
     }
 
-    onMouseMove() {
+    onMouseMove([xCord, yCord], event) {
     }
-    onMouseUp() {
-
+    onMouseUp([xCord, yCord], event) {
+        saveData();
     }
-    onMouseLeave() {}
-    onMouseEnter() {}
+    onMouseLeave([xCord, yCord], event) {}
+    onMouseEnter([xCord, yCord], event) {}
 }

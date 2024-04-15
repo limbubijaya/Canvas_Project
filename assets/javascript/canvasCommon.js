@@ -10,8 +10,11 @@ let lineCap = "round";
 let lineJoin = "round";
 $('#slider_value').html("10");
 let strokeSize = 10; //size of pen [stroke width]
-const originalArr = []; //original stuff
-const undoArr = []; //undo
+let undoRedoArr = new Array();
+let index = -1;
+
+var mouse = {x: 0, y: 0};
+var previous = {x: 0, y: 0};
 
 var window_height = window.innerHeight;
 var window_width = window.innerWidth;
