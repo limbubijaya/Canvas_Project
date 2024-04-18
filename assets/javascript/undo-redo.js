@@ -1,39 +1,36 @@
-$("#undo").on("click", function(){
-    Undo();
-});
+// Initialize variables
+let undoRedoArr = [];
+let index = -1;
 
-$("#redo").on("click", function(){
-    Redo();
-});
+$("#undo").on("click", Undo);
+$("#redo").on("click", Redo);
 
+// Saves Shape
 function saveData() {
     index++;
-    if (index < undoRedoArr.length) { 
-        undoRedoArr.length = index; 
-    }
-    let lastMove = canvasReal.toDataURL()
-    undoRedoArr.push(lastMove);
-    console.log(undoRedoArr);
+    undoRedoArr.splice(index, undoRedoArr.length - index, canvasReal.toDataURL());
 }
 
 function Undo() {
     if (index >= 0) {
         index--;
-        var canvasPic = new Image();
+        const canvasPic = new Image();
         canvasPic.src = undoRedoArr[index];
-        canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
-        contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+        canvasPic.onload = function () {
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            contextReal.drawImage(canvasPic, 0, 0);
+        };
     }
 }
 
 function Redo() {
     if (index < undoRedoArr.length-1) {
         index++;
-        var canvasPic = new Image();
+        const canvasPic = new Image();
         canvasPic.src = undoRedoArr[index];
-        canvasPic.onload = function () { contextReal.drawImage(canvasPic, 0, 0); }
+        canvasPic.onload = function () {
+            contextReal.clearRect(0, 0, canvasReal.width, canvasReal.height);
+            contextReal.drawImage(canvasPic, 0, 0);
+        };
     }
 }
-
-
-

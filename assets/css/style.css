@@ -1,9 +1,12 @@
-*{
+/* Global style */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: white;
 }
 
+/* Canvas Setting */
 .canvas {
     border: 1px black solid;
     position: absolute;
@@ -11,22 +14,23 @@
     left: 42px;
 }
 
-.topArea{
+/* Top area */
+.topArea {
     display: flex;
     flex-direction: column;
     height: 50px;
-    width: 100%;
+    width: auto;
     flex-wrap: nowrap;
     background-color: #535353;
 }
 
-.topAreaText{
-    color: white;
+.topAreaText {
     margin-top: 15px;
     margin-left: 2px;
 }
 
-.upperArea{
+/* Upper area */
+.upperArea {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -35,7 +39,8 @@
     height: 20px;
 }
 
-.lowerArea{
+/* Lower area */
+.lowerArea {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -45,37 +50,54 @@
     align-items: center;
 }
 
-.icon{
+/* Top button */
+.top-btn {
+    background-color: #535353;
+    border: 0.5px solid #535353;
+    width: 40px;
+    height: 40px;
+}
+
+.top-btn:hover {
+    border: 0.5px solid #666666;
+    background-color: #454545;
+}
+
+/* Lower area Image Setting */
+.icon {
     width: 20px;
     height: 20px;
     margin-left: 8px;
     margin-top: 10px;
 }
 
-.icon.undo{
+.icon.undo {
     margin-top: 11.5px;
     margin-left: 10px;
     width: 16px;
     height: 16px;
 }
 
-.stroke{
-    width: 20px;
-    height: 20px;
-}
-
-.dropdown-menu{
+/* Dropdown menu */
+.dropdown-menu {
     background-color: #535353 !important;
     color: white !important;
 }
 
-.dropdownContainer{
+.dropdownIcon {
+    width: 23px;
+    height: 23px;
+}
+
+/* Dropdown container */
+.dropdownContainer {
     display: flex;
     justify-content: space-evenly;
     margin: 5px 0;
 }
 
-#strokeCircle{
+/* Stroke circle */
+#strokeCircle {
     width: 35px;
     height: 35px;
     background-color: white;
@@ -83,98 +105,102 @@
     border-radius: 50%;
 }
 
-#strokeSquare{
+#strokeCircle:hover {
+    border: 2px solid red;
+}
+
+#strokeCircle img {
+    height: 100%;
+    width: 100%;
+}
+
+/* Stroke square */
+#strokeSquare {
     width: 35px;
     height: 35px;
     border: 2px dotted white;
     border-radius: 50%;
 }
 
-#strokeCircle:hover{
+#strokeSquare:hover {
     border: 2px solid red;
 }
 
-#strokeSquare:hover{
-    border: 2px solid red;
-}
-
-#strokeCircle img{
+#strokeSquare img {
     height: 100%;
     width: 100%;
 }
 
-#strokeSquare img{
-    height: 100%;
-    width: 100%;
-}
-
-
-
-.top-btn{
-    background-color: #535353;
-    border: 0.5px solid #535353;
-    width: 40px;
-    height: 40px;
-}
-
-.top-btn:hover{
-    border: 0.5px solid #666666;
+/* Reset filter */
+#resetFilter:hover {
     background-color: #454545;
-
 }
 
-.leftArea{
+/* Left area */
+.leftArea {
     border: 2px solid #424242;
     border-style: solid solid solid none;
     float: left;
     display: flex;
     justify-content: center;
     padding: 20px;
-    height: 932px;
-    width:  2dvh;
+    height: auto;
+    width: 34px;
     position: absolute;
     top: 65px;
     background-color: #535353;
 }
 
-.leftContainer{
+.leftContainer {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
 }
 
-.icon2{
+/* Strategy container */
+.strategies {
+    background-color: #535353;
+    border: 0.5px solid #535353;
+}
+
+.strategies:hover {
+    border: 0.5px solid #666666;
+    background-color: #454545;
+}
+
+/* Strategy Image Settings */
+.icon2 {
     margin: 5px;
     width: 20px;
     height: 20px;
 }
 
-.icon2.arc{
+.icon2.arc {
     margin-left: 2px;
     width: 25px;
     height: 25px;
 }
 
-.strategies{
-    background-color: #535353;
-    border: 0.5px solid #535353;
+/* Color Picker Dropdown */
+.dropdownStrategies {
+    width: 35px;
+    height: 35px;
+    margin: 0;
 }
 
-.strategies:hover{
-    border: 0.5px solid #666666;
-    background-color: #454545;
+.dropdownStrategies img {
+    width: 100%;
+    height: 70%;
 }
 
-.strategies.color{
+.strategies.colorPick {
     margin-top: 3px;
-    width: 30px;
+    width: 60px;
     height: 30px;
 }
 
-#colorPickerFill, #colorPickerStroke{
-    width: 30px;
+#colorPickerFill,
+#colorPickerStroke {
+    width: 60px;
     height: 30px;
 }
-
-
-

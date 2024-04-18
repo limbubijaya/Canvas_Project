@@ -1,34 +1,48 @@
+// Get the canvas elements and their contexts
 let canvasReal = document.getElementById("canvas-real");
 let contextReal = canvasReal.getContext("2d");
 let canvasDraft = document.getElementById("canvas-draft");
 let contextDraft = canvasDraft.getContext("2d");
+
+// Initialize variables
 let currentFunction;
 let dragging = false;
 let colorStroke = "black";
 let colorFill = "white";
+let canvasColor = "white";
 let lineCap = "round";
 let lineJoin = "round";
-$('#slider_value').html("10");
-let strokeSize = 10; //size of pen [stroke width]
-let undoRedoArr = new Array();
-let index = -1;
+let strokeSize = 10;
 
-var mouse = {x: 0, y: 0};
-var previous = {x: 0, y: 0};
-
+// Set initial canvas & div size based on window dimensions
 var window_height = window.innerHeight;
 var window_width = window.innerWidth;
+canvasReal.width = window_width - 44;
+canvasDraft.width = window_width - 44;
+canvasReal.height = window_height - 68;
+canvasDraft.height = window_height - 68;
+$(".leftArea").css("height", window_height - 65);
+$(".topArea").css("width", window_width);
 
-canvasReal.width = window_width-44;
-canvasDraft.width = window_width-44;
-canvasReal.height = window_height-68;
-canvasDraft.height = window_height-68;
+// Update canvas & div size when window is resized
+$(window).on("resize", function () {
+  window_height = window.innerHeight;
+  window_width = window.innerWidth;
 
+  canvasReal.width = window_width - 44;
+  canvasDraft.width = window_width - 44;
+  canvasReal.height = window_height - 68;
+  canvasDraft.height = window_height - 68;
+  $(".leftArea").css("height", window_height - 65);
+  $(".topArea").css("width", window_width);
+});
+
+// Mouse Events
 $('#canvas-draft').mousedown(function (e) {
-    let mouseX = e.offsetX;
-    let mouseY = e.offsetY;
-    currentFunction.onMouseDown([mouseX, mouseY], e);
-    dragging = true;
+  let mouseX = e.offsetX;
+  let mouseY = e.offsetY;
+  currentFunction.onMouseDown([mouseX, mouseY], e);
+  dragging = true;
 });
   
 $("#canvas-draft").mousemove(function (e) {
@@ -60,6 +74,7 @@ $("#canvas-draft").mouseenter(function (e) {
   currentFunction.onMouseEnter([mouseX, mouseY], e);
 });
 
+// Template for all of the paint functions
 class PaintFunction {
   constructor() {}
   onMouseDown() {}
@@ -69,18 +84,3 @@ class PaintFunction {
   onMouseLeave() {}
   onMouseEnter() {}
 };
-
-$("#colorPickerFill").on("input", function(e){
-  colorFill = e.target.value;
-});
-
-$("#colorPickerStroke").on("input", function(e){
-  colorStroke = e.target.value;
-});
-
-$(document).on('input', '#slider',function(e){
-  strokeSize = e.target.value;
-  $('#slider_value').html(e.target.value);
-});
-
-

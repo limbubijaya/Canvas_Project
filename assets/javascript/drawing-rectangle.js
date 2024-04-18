@@ -7,6 +7,7 @@ class DrawingRectangle extends PaintFunction {
     }
 
     onMouseDown([xCord, yCord], event) {
+        // Set rectangle properties
         this.contextDraft.lineCap = lineCap;
         this.contextDraft.lineJoin = lineJoin;
         this.contextDraft.lineWidth = strokeSize;
@@ -17,33 +18,41 @@ class DrawingRectangle extends PaintFunction {
         this.contextReal.lineWidth = strokeSize;
         this.contextReal.strokeStyle = colorStroke;
         this.contextReal.fillStyle = colorFill;
+
+        // Stores the starting coordinates
         this.startingX = xCord;
         this.startingY = yCord;
     }
 
     onDragging([xCord, yCord], event) {
-    let a = this.startingX - xCord;
-    let b = this.startingY - yCord;
-    let c = Math.sqrt( a*a + b*b );
-    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    this.contextDraft.beginPath();
-    this.contextDraft.rect(this.startingX, this.startingY, -a, -b);
-    this.contextDraft.fill();
-    this.contextDraft.stroke();
+        // Calculates the width and height of the rectangle
+        let width = this.startingX - xCord;
+        let height = this.startingY - yCord;
+
+        // Shows a preview of the rectangle
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextDraft.beginPath();
+        this.contextDraft.rect(this.startingX, this.startingY, -width, -height);
+        this.contextDraft.fill();
+        this.contextDraft.stroke();
     }
 
     onMouseMove([xCord, yCord], event) {}
 
     onMouseUp([xCord, yCord], event) {
-    let a = this.startingX - xCord;
-    let b = this.startingY - yCord;
-    let c = Math.sqrt( a*a + b*b );
-    this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
-    this.contextReal.beginPath()
-    this.contextReal.rect(this.startingX, this.startingY, -a, -b);
-    this.contextReal.fill();
-    this.contextReal.stroke();
-    saveData();
+        // Calculates the width and height of the rectangle
+        let width = this.startingX - xCord;
+        let height = this.startingY - yCord;
+
+        // Clears the preview and draws the rectangle on the real canvas
+        this.contextDraft.clearRect(0, 0, canvasDraft.width, canvasDraft.height);
+        this.contextReal.beginPath()
+        this.contextReal.rect(this.startingX, this.startingY, -width, -height);
+        this.contextReal.fill();
+        this.contextReal.stroke();
+
+        // Saves the drawing
+        saveData();
     }
 
     onMouseLeave([xCord, yCord], event) {}
